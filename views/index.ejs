@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Crudapp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/html" href="./app/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" type="text/html" href="styles.scss">
+  <link rel="stylesheet" type="text/html" href="styles.css">
+</head>
+<h1>Task Details</h1>
+<form id="formaddtask" name="formaddtask" method="post" action="/task/add">
+  <div class="form-group">
+   <div class="input-group">
+       <div class="input-group-prepend">
+           <div class="input-group-text bg-white">
+             
+              <i class="fas fa-comment"></i>
+           </div>
+       </div>
+       <input type="text" name="description" id="description" placeholder="Description"  class="form-control" ngModel>
+   </div>
+   <div class="form-group">
+   <div class="input-group">
+      <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+              
+              <i class="fas fa-exclamation-circle"></i>
+          </div>
+      </div>
+      <input type="text" name="priority" id="priority" placeholder="Priority"   class="form-control" ngModel>
+  </div>
+   </div>
+  <div class="form-group">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+             
+              <i class="fas fa-check-circle"></i>
+          </div>
+      </div>
+      <input type="text" name="status" id="status" placeholder="Status"   class="form-control" ngModel>
+  </div>
+   </div>
+  <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i>&nbsp;&nbsp;<span>Submit</span></button>
+  </div>
+</div>
+<table class="table">
+  <thead style="background-color: black;" class="thead-dark">
+    <tr style="color: cornsilk;">
+      <td>Description</td>
+      <td>Priority</td>
+      <td>Status</td>
+      <td>Delete</td>
+      <td>Edit</td>
+    </tr>
+  </thead>
+  <% tasks.forEach(function(task){%>
+  <tbody>
+    <tr>
+      <td><%=task.value.description%></td>
+      <td><%=task.value.priority%></td>
+      <td><%=task.value.status%></td>
+      <td>
+          <form method="post" action="/task/delete/<%=task.key%>">
+            <input type="hidden" name="rev" value="<%=task.value.rev%>">
+            <input type="submit" class="fas fa-sync-alt" value="Delete">
+            </form>
+      </td>
+      <td>
+            <form method="get" action="/task/edit/<%=task.key%>">
+              <input type="submit" class="fas fa-sync-alt" value="Edit">
+            </form>
+      </td>
+      
+  </tr>
+  </tbody>
+  <%});%>
+</table>
+<!-- <table class="table">
+  <thead style="background-color: black;" class="thead-dark">
+    <tr style="color: cornsilk;">
+      <td>Description</td>
+      <td>Priority</td>
+      <td>Status</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <% tasks.forEach(function(task){%>
+  <tbody>
+      <tr>
+          <td><%=task.value.description%></td>
+      
+          <td><%=task.value.priority%></td>
+          <td><%=task.value.status%></td>
+          <td><a><i class="far fa-trash-alt fa-lg text-danger" (click)="deletetask(task._id)"></i></a></td>
+          <td [routerLink]="/task/edit/<%=task.key%>"><a><i class="fas fa-sync-alt"></i></a></td>
+      </tr>
+  </tbody>
+  <%});%>
+</table> -->
+</form>
+<!-- <form method="post" action="/task/add">
+    
+    <input type="text" name="description" placeholder="Description">
+    <input type="text" name="priority" placeholder="Priority">
+    <input type="text" name="status" placeholder="Status">
+    <input type="submit" value="Submit">
+</form> -->
+<!-- <table class="table">
+    <thead style="background-color: black;" class="thead-dark">
+      <tr style="color: cornsilk;">
+        <td>Description</td>
+        <td>Priority</td>
+        <td>Status</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <% tasks.forEach(function(task){%>
+    <tbody>
+      <tr>
+        <td><%=task.value.description%></td>
+        <td><%=task.value.priority%></td>
+        <td><%=task.value.status%></td>
+        <td>
+          <form method="post" action="/task/delete/<%=task.key%>">
+          <input type="hidden" name="rev" value="<%=task.value.rev%>">
+          <input type="submit" value="Delete">
+          </form>
+          <form method="get" action="/task/edit/<%=task.key%>">
+            <input type="submit" value="Edit">
+          </form>
+        </td>
+        
+    </tr>
+    </tbody>
+    <%});%>
+  </table>  -->
+</html>

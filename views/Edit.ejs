@@ -1,0 +1,64 @@
+<!-- <h1>Edit Details</h1>
+<form method="post" action="/task/update/<%=id%>">
+    <input type="hidden" name="id" value="<%=id%>">
+    <input type="hidden" name="rev" value="<%=rev%>">
+    <input type="text" name="description" value="<%=description%>" placeholder="Description">
+    <input type="text" name="priority" value="<%=priority%>" placeholder="Priority">
+    <input type="text" name="status" value="<%=status%>" placeholder="Status">
+    <input type="submit" value="Update">
+</form> -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Crudapp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/html" href="./app/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" type="text/html" href="styles.scss">
+  <link rel="stylesheet" type="text/html" href="styles.css">
+</head>
+<h1>Edit Details</h1>
+<form id="formaddtask" name="formaddtask" method="post" action="/task/update/<%=id%>">
+    <input type="hidden" name="id" value="<%=id%>">
+    <input type="hidden" name="rev" value="<%=rev%>">
+  <div class="form-group">
+   <div class="input-group">
+       <div class="input-group-prepend">
+           <div class="input-group-text bg-white">
+             
+              <i class="fas fa-comment"></i>
+           </div>
+       </div>
+       <input type="text" name="description" id="description" placeholder="Description"  value="<%=description%>">
+   </div>
+   <div class="form-group">
+   <div class="input-group">
+      <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+              
+              <i class="fas fa-exclamation-circle"></i>
+          </div>
+      </div>
+      <input type="text" name="priority" id="priority" placeholder="Priority"   value="<%=priority%>" >
+  </div>
+   </div>
+  <div class="form-group">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+             
+              <i class="fas fa-check-circle"></i>
+          </div>
+      </div>
+      <input type="text" name="status" id="status" placeholder="Status"   value="<%=status%>">
+  </div>
+   </div>
+  <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i>&nbsp;&nbsp;<span>Update</span></button>
+  </div>
+</div>
+</form>
+</html>
