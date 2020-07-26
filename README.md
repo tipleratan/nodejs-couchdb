@@ -15,6 +15,7 @@ Back End :
 http://localhost:5984/_utils/#login
 
 User Name : admin
+Password : tips112
 
 Database Name : my_db
 
